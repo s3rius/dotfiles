@@ -1,0 +1,3 @@
+[submodule "i3wm"]
+	path = i3wm
+	url = https://github.com/s3rius/i3wm-autoConfig.git
