@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Installing required for hyperVim packages
-sudo pacman -S --needed vim git python jdk8-openjdk cmake
+sudo pacman -S --needed vim git python jdk8-openjdk cmake gcc make
 
 # Installing amix/vimrc awesome vim scheme.
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
