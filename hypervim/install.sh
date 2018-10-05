@@ -9,10 +9,11 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 # Installing Vundle to manage your plugins
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 cp ./Vundle.vim ~/.vim_runtime/vimrcs/Vundle.vim
 
 # Adding Vundle in ~/.vimrc
-sed -i '3isource ~/.vim_runtime/vimrcs/Vundle.vim'
+sed -i '3isource ~/.vim_runtime/vimrcs/Vundle.vim' ~/.vimrc
 
 # Installing plugins
 
