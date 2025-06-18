@@ -1,12 +1,12 @@
 root = "dotfiles"
 
 [files]
-wallpapers = "~/Pictures/wallpapers"
 hypr = "~/.config/hypr"
-kitty = "~/.config/kitty"
-nvim = "~/.config/nvim"
 ".zshrc" = "~/.zshrc"
 ".gitconfig" = "~/.gitconfig"
+wallpapers = "~/Pictures/wallpapers"
 ".zfunc" = "~/.zfunc"
-"config.toml" = "~/.config/mise/config.toml"
+kitty = "~/.config/kitty"
 ".zshenv" = "~/.zshenv"
+nvim = "~/.config/nvim"
+mise = "~/.config/mise"
