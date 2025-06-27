@@ -11,3 +11,4 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.softtabstop = 2
 vim.opt.clipboard = "unnamedplus"
+-- vim.api.nvim_set_hl(0, "Normal", { guibg = nil, ctermbg = nil })

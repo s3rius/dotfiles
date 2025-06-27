@@ -27,14 +27,31 @@ require("lazy").setup({
     --     vim.cmd [[colorscheme dracula]]
     --   end
     -- },
+    -- {
+    --   "catppuccin/nvim",
+    --   name = "catppuccin",
+    --   priority = 1000,
+    --   init = function()
+    --     vim.cmd [[colorscheme catppuccin]]
+    --   end
+    -- },
     {
-      "catppuccin/nvim",
-      name = "catppuccin",
+      'eddyekofo94/gruvbox-flat.nvim',
       priority = 1000,
-      init = function()
-        vim.cmd [[colorscheme catppuccin]]
-      end
+      enabled = true,
+      config = function()
+        vim.cmd [[colorscheme gruvbox-flat]]
+      end,
     },
+    {
+      'xiyaowong/transparent.nvim',
+      name = 'transparent',
+      event = 'VimEnter',
+      config = true,
+      init = function ()
+        require('transparent').toggle(true)
+      end
+    }
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
