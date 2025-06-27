@@ -39,18 +39,29 @@ require("lazy").setup({
       'eddyekofo94/gruvbox-flat.nvim',
       priority = 1000,
       enabled = true,
-      config = function()
+      init = function()
         vim.cmd [[colorscheme gruvbox-flat]]
       end,
     },
     {
       'xiyaowong/transparent.nvim',
       name = 'transparent',
-      event = 'VimEnter',
-      config = true,
-      init = function ()
+      init = function()
+        print("Calling this this")
         require('transparent').toggle(true)
-      end
+      end,
+      opts = {
+        exclude_groups = {
+          "LspFloatWinNormal",
+          "NormalFloat",
+          "FloatBorder",
+          "TelescopeNormal",
+          "TelescopeBorder",
+          "TelescopePromptBorder",
+          "SagaBorder",
+          "SagaNormal",
+        }
+      },
     }
   },
   -- Configure any other settings here. See the documentation for more details.
