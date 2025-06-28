@@ -6,6 +6,7 @@ export ZSH="/home/$USER/.oh-my-zsh"
 export EDITOR=/usr/bin/nvim
 export GOPATH="$HOME/.go"
 export RUST_BACKTRACE="1"
+export MANPAGER='/usr/bin/nvim +Man!'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
