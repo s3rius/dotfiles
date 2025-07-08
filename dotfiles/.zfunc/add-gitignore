@@ -7,4 +7,4 @@ if [[ ${HTTP_CODE} -lt 200 || ${HTTP_CODE} -gt 299 ]] ; then
   echo "Unknown gitignore"
   return 22
 fi
-mv "$OUTPUT_FILE" ".gitignore2"
+mv "$OUTPUT_FILE" ".gitignore"
