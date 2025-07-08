@@ -3,10 +3,6 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/$USER/.oh-my-zsh"
-export EDITOR=/usr/bin/nvim
-export GOPATH="$HOME/.go"
-export RUST_BACKTRACE="1"
-export MANPAGER='/usr/bin/nvim +Man!'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -72,7 +68,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo docker autojump git-flow gpg-agent)
+plugins=(git sudo docker docker-compose man autojump git-flow gpg-agent archlinux alias-finder aws nats)
 
 source $ZSH/oh-my-zsh.sh
 alias ls=lsd
@@ -100,7 +96,6 @@ alias vterm="vim -c \"startinsert\" -c \":term\""
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export AWS_DEFAULT_REGION="eu-west-1"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -132,8 +127,6 @@ pya
 
 autoload -Uz compinit
 zstyle ':completion:*' menu select
-
-
 
 # pnpm
 export PNPM_HOME="/home/$USER/.local/share/pnpm"

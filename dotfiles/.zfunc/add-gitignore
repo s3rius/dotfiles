@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+URL="https://raw.githubusercontent.com/github/gitignore/main/$1.gitignore"
+OUTPUT_FILE=$(mktemp)
+HTTP_CODE=$(curl --silent --output $OUTPUT_FILE --write-out "%{http_code}" "$URL")
+if [[ ${HTTP_CODE} -lt 200 || ${HTTP_CODE} -gt 299 ]] ; then
+  echo "Unknown gitignore"
+  return 22
+fi
+mv "$OUTPUT_FILE" ".gitignore2"
