@@ -71,10 +71,10 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git sudo docker docker-compose man autojump git-flow gpg-agent archlinux alias-finder aws nats)
 
 source $ZSH/oh-my-zsh.sh
-alias ls=lsd
+alias ls="eza --icons=always --group-directories-first --color=always --git"
+alias l="ls -la"
 alias vim=$EDITOR
 alias rcheck="cargo check && fd .rs -F | xargs touch && cargo clippy && cargo test"
-alias l="lsd -la"
 alias lg="lazygit"
 alias dcd="docker-compose down"
 alias dcdv="docker-compose down -v"
