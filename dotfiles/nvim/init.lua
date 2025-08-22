@@ -26,9 +26,19 @@ vim.pack.add({
 		src = "https://github.com/s3rius/venv-selector.nvim",          -- Local venv selector plugin
 		version = "feature/mini-pick",
 	},                                                               -- For Python virtualenv selection
+	{ src = "https://github.com/folke/trouble.nvim" },               -- For showing LSP diagnostics
+	{ src = "https://github.com/windwp/nvim-autopairs" },            -- Autopairs for brackets, parens, etc.
 })
--- require('telescope').setup()
 vim.cmd("colorscheme gruvbox-flat")
+vim.diagnostic.enable()
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	update_in_insert = false,
+	underline = true,
+	severity_sort = false,
+	float = true,
+})
 
 vim.keymap.set("n", "<leader>cr", ":source $MYVIMRC<CR>", { desc = "Reload config" })
 vim.keymap.set("n", "<leader>pu", vim.pack.update, { desc = "Update plugins" })
@@ -57,13 +67,24 @@ require("config.lsp")
 vim.keymap.set("n", "<C-S-i>", vim.lsp.buf.format, { desc = "Format code" })
 vim.keymap.set("n", "<C-Space>", vim.lsp.buf.code_action, { desc = "Code actions" })
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
 vim.keymap.set("i", "<C-space>", vim.lsp.completion.get, { desc = "trigger autocompletion" })
 
 -- Oil setup
 local oil = require("oil")
 oil.setup({
 	view_options = {
-		show_hidden = true,
+		show_hidden = false,
+		is_hidden_file = function(name, bufnr)
+			-- Unwanted files to exclude
+			local excludes = { ".DS_Store", "CVS", ".git", ".hg", ".svn", "__pycache__" }
+			if vim.tbl_contains(excludes, name) then
+				return true
+			end
+			-- If the file starts with a dot, it's hidden
+			local m = name:match("^%.")
+			return m ~= nil
+		end,
 	},
 })
 vim.keymap.set("n", "<leader>ft", oil.toggle_float, { desc = "Toggle file explorer" })
@@ -105,9 +126,25 @@ require("nvim-treesitter.configs").setup({
 	modules = {},
 })
 
-require("venv-selector").setup({
-	options = {},
-})
+-- Python venv selector setup
+require("venv-selector").setup({})
 vim.keymap.set("n", "<leader>vs", ":VenvSelect<CR>", { desc = "Select Python virtualenv" })
+
+-- Trouble setup
+require("trouble").setup({})
+vim.keymap.set(
+	"n",
+	"<leader>cp",
+	"<cmd>Trouble diagnostics toggle filter.buf=0<CR>",
+	{ desc = "Show code problems" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>cgp",
+	"<cmd>Trouble diagnostics toggle<CR>",
+	{ desc = "Show global code problems" }
+)
+
+require("nvim-autopairs").setup({})
 
 pcall(require, "config.intree")
