@@ -6,7 +6,6 @@ vim.o.tabstop = 2
 vim.o.relativenumber = true
 vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
-vim.opt.clipboard = "unnamedplus"
 vim.opt.swapfile = false
 vim.opt.completeopt = { "menuone", "noselect", "popup" }
 
