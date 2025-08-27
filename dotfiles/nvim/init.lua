@@ -22,8 +22,8 @@ vim.pack.add({
 	{ src = "https://github.com/mikesmithgh/kitty-scrollback.nvim" }, -- Kitty scrollback integration
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },  -- Treesitter for syntax highlighting
 	{
-		src = "https://github.com/s3rius/venv-selector.nvim",          -- Local venv selector plugin
-		version = "feature/mini-pick",
+		src = "https://github.com/linux-cultist/venv-selector.nvim",   -- Local venv selector plugin
+		version = "regexp",
 	},                                                               -- For Python virtualenv selection
 	{ src = "https://github.com/folke/trouble.nvim" },               -- For showing LSP diagnostics
 	{ src = "https://github.com/windwp/nvim-autopairs" },            -- Autopairs for brackets, parens, etc.
@@ -59,7 +59,7 @@ require("mini.pick").setup({
 })
 vim.keymap.set("n", "<leader>ff", ":Pick files<CR>", { desc = "Pick files" })
 vim.keymap.set("n", "<leader>fg", ":Pick grep_live<CR>", { desc = "Grep for lines" })
-vim.keymap.set("n", "<leader>bl", ":Pick buffers include_current=false<CR>", { desc = "Pick other buffers" })
+-- vim.keymap.set("n", "<leader>bl", ":Pick buffers include_current=false<CR>", { desc = "Pick other buffers" })
 
 -- LSP-related configs
 require("config.lsp")
@@ -68,6 +68,7 @@ vim.keymap.set("n", "<C-Space>", vim.lsp.buf.code_action, { desc = "Code actions
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
 vim.keymap.set("i", "<C-space>", vim.lsp.completion.get, { desc = "trigger autocompletion" })
+vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
 -- Oil setup
 local oil = require("oil")
@@ -147,3 +148,6 @@ vim.keymap.set(
 require("nvim-autopairs").setup({})
 
 pcall(require, "config.intree")
+
+require("config.buffers").setup({})
+vim.keymap.set("n", "<leader>bl", ":OrderedBuffers<CR>", { desc = "Show Buffers" })
