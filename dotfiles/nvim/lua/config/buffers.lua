@@ -20,73 +20,59 @@ local function remove_buffer(event)
 	end
 end
 
-local function prepare_to_show(existing)
-	-- Clean up history to only include existing buffers
-	history = vim.tbl_filter(function(item) return vim.tbl_contains(existing, item) end, history)
-	-- Add any existing buffers that are not in history to the end
-	local prepared = vim.deepcopy(history)
-	for _, bufnr in ipairs(existing) do
-		if not vim.tbl_contains(prepared, bufnr) then
-			table.insert(prepared, bufnr)
+
+--- List all buffers
+--- @return table<integer>
+local function get_buffers()
+	local buffers_exec = vim.api.nvim_exec2('buffers', { output = true })
+	local cur_bufnr = vim.api.nvim_get_current_buf()
+	local items = {}
+	for _, l in ipairs(vim.split(buffers_exec.output, '\n')) do
+		local buf_str = l:match('^%s*%d+')
+		local bufnr   = tonumber(buf_str)
+		if bufnr ~= cur_bufnr then
+			table.insert(items, bufnr)
 		end
 	end
-	return prepared
+	return items
 end
 
-local function show_buffers(opts)
-	local filter = vim.tbl_get(opts, "filters") or {}
-	local function inner()
-		local filtered_history = {}
-		-- Get current working directory to strip from paths
-		local cwd = vim.fn.getcwd() .. "/"
-		-- List all existing listed buffers
-		local existing = vim.tbl_filter(function(bufnr) return vim.api.nvim_buf_is_loaded(bufnr) end,
-			vim.api.nvim_list_bufs())
-		-- Sort buffers to show most recently used first
-		local buffers = prepare_to_show(existing)
-		for i, bufnr in ipairs(buffers) do
-			-- Skip the current buffer
-			if i ~= 1 then
-				-- Get buffer name
-				local buf_name = vim.api.nvim_buf_get_name(bufnr)
-				for _, f in ipairs(filter) do
-					if buf_name:match(f) then
-						buf_name = nil
-						break
-					end
-				end
-				if buf_name == nil then
-					print("Filtered out", bufnr)
-				elseif buf_name:sub(1, #cwd) == cwd then
-					-- Strip cwd from the path if it's there
-					table.insert(filtered_history, { text = buf_name:sub(#cwd + 1), bufnr = bufnr })
-				elseif buf_name == "" then
-					-- If no name, show [No Name]
-					table.insert(filtered_history, { text = "[No Name]", bufnr = bufnr })
-				else
-					-- Otherwise, show full path
-					table.insert(filtered_history, { text = buf_name, bufnr = bufnr })
-				end
+local function show_buffers()
+	local filtered_history = {}
+	-- Get current working directory to strip from paths
+	local cwd = vim.fn.getcwd() .. "/"
+	local buffers = get_buffers()
+	-- We get all our history, but only
+	-- show loaded buffers
+	for _, bufnr in ipairs(history) do
+		if vim.tbl_contains(buffers, bufnr) then
+			local bufname = vim.api.nvim_buf_get_name(bufnr)
+			-- Strip cwd from the path if it's there
+			if bufname:sub(1, #cwd) == cwd then
+				table.insert(filtered_history, { text = bufname:sub(#cwd + 1), bufnr = bufnr })
+			else
+				table.insert(filtered_history, { text = bufname, bufnr = bufnr })
 			end
 		end
-		mini_pick.start({
-			source = {
-				name = "Select buffer",
-				items = filtered_history,
-			}
-		})
 	end
-	return inner
+	mini_pick.start({
+		source = {
+			name = "Select buffer",
+			items = filtered_history,
+			-- We pass show_icons=True here to
+			-- display icons correctly.
+			show = function(buf_id, items, query) mini_pick.default_show(buf_id, items, query, { show_icons = true }) end
+		}
+	})
 end
 
 local M = {}
-
 
 M.setup = function(opts)
 	local ord_buf_group = vim.api.nvim_create_augroup('OrdBuffers', { clear = true })
 	vim.api.nvim_create_autocmd({ "BufEnter" }, { callback = add_buffer, group = ord_buf_group })
 	vim.api.nvim_create_autocmd({ "BufDelete" }, { callback = remove_buffer, group = ord_buf_group })
-	vim.api.nvim_create_user_command("OrderedBuffers", show_buffers(opts), { desc = "Show buffer picker" })
+	vim.api.nvim_create_user_command("OrderedBuffers", show_buffers, { desc = "Show buffer picker" })
 end
 
 return M

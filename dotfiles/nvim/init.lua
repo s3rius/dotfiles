@@ -8,19 +8,27 @@ vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
 vim.opt.swapfile = false
 vim.opt.completeopt = { "menuone", "noselect", "popup" }
+vim.o.winborder = 'rounded'
 
 -- Packages
 vim.pack.add({
 	-- Mini plugins
 	{ src = "https://github.com/echasnovski/mini.pick" },            -- Picker for random things
-	{ src = "https://github.com/echasnovski/mini.icons" },           -- Icons
-	{ src = "https://github.com/echasnovski/mini.snippets" },        -- LSP snippets
-	{ src = "https://github.com/echasnovski/mini.completion" },      -- LSP completion
 	{ src = "https://github.com/echasnovski/mini.files" },           -- File manager.
+	{ src = "https://github.com/echasnovski/mini.extra" },           -- Extra features for mini.pick
+	{ src = "https://github.com/echasnovski/mini.icons" },           -- Extra features for mini.pick
+	-- CMP
+	{ src = "https://github.com/hrsh7th/cmp-nvim-lsp" },             -- LSP source for nvim-cmp
+	{ src = "https://github.com/hrsh7th/nvim-cmp" },                 -- Completion engine
+	{ src = "https://github.com/hrsh7th/cmp-path" },                 -- Path source for nvim-cmp
+	{ src = "https://github.com/hrsh7th/cmp-cmdline" },              -- Cmdline source for nvim-cmp
+	{ src = "https://github.com/hrsh7th/cmp-vsnip" },                -- Vsnip source for nvim-cmp
+	{ src = "https://github.com/hrsh7th/vim-vsnip" },                -- Snippet engine
+	{ src = "https://github.com/zbirenbaum/copilot-cmp" },           -- Copilot cmp source
 	-- Other plugins
 	{ src = "https://github.com/eddyekofo94/gruvbox-flat.nvim" },    -- Gruvbox theme
 	{ src = "https://github.com/neovim/nvim-lspconfig" },            -- LSP support
-	{ src = "https://github.com/github/copilot.vim" },               -- Copilot
+	{ src = "https://github.com/zbirenbaum/copilot.lua" },           -- Copilot
 	{ src = "https://github.com/smoka7/hop.nvim" },                  -- EasyMotion
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },          -- Terminal integration
 	{ src = "https://github.com/folke/which-key.nvim" },             -- Small key helper
@@ -55,47 +63,23 @@ vim.keymap.set("n", "<leader>bk", ":bdelete!<CR>", { desc = "Buffer kill" })
 
 -- Picker setup
 require("mini.pick").setup({ options = { content_from_bottom = true } })
+require("mini.extra").setup({})
+require("mini.icons").setup({})
 
 vim.keymap.set("n", "<leader>fr", ":Pick resume<CR>", { desc = "Pick resume" })
 vim.keymap.set("n", "<leader>fh", ":Pick help<CR>", { desc = "Pick help" })
 vim.keymap.set("n", "<leader>ff", ":Pick files<CR>", { desc = "Pick files" })
 vim.keymap.set("n", "<leader>fg", ":Pick grep_live<CR>", { desc = "Grep for lines" })
 
-require("mini.icons").setup()
-require("mini.snippets").setup()
-require("mini.completion").setup({
-	mappings = {
-		scroll_down = "<Tab>",
-		scroll_up = "<S-Tab>",
-	}
-})
-
 -- LSP-related configs
 require("config.lsp")
 vim.keymap.set("n", "<C-S-i>", vim.lsp.buf.format, { desc = "Format code" })
 -- vim.keymap.set("n", "<C-Space>", vim.lsp.buf.code_action, { desc = "Code actions" })
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
+vim.keymap.set("n", "gd", ":Pick lsp scope='definition'<CR>", { desc = "Go to definition" })
+vim.keymap.set("n", "gr", ":Pick lsp scope='references'<CR>", { desc = "Go to references" })
 -- vim.keymap.set("i", "<C-space>", vim.lsp.completion.get, { desc = "trigger autocompletion" })
 vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
--- Oil setup
--- local oil = require("oil")
--- oil.setup({
--- 	view_options = {
--- 		show_hidden = false,
--- 		is_hidden_file = function(name, bufnr)
--- 			-- Unwanted files to exclude
--- 			local excludes = { ".DS_Store", "CVS", ".git", ".hg", ".svn", "__pycache__" }
--- 			if vim.tbl_contains(excludes, name) then
--- 				return true
--- 			end
--- 			-- If the file starts with a dot, it's hidden
--- 			local m = name:match("^%.")
--- 			return m ~= nil
--- 		end,
--- 	},
--- })
 require("mini.files").setup({})
 vim.keymap.set("n", "<leader>ft", ":lua MiniFiles.open()<CR>", { desc = "Toggle file explorer" })
 
@@ -159,11 +143,11 @@ require("nvim-autopairs").setup({})
 
 pcall(require, "config.intree")
 
-require("config.buffers").setup({
-	filters = {
-		"miniicons://.*",
-		"oil://.*",
-		"minicompletion://.*",
-	}
-})
+require("config.buffers").setup({})
 vim.keymap.set("n", "<leader>bl", ":OrderedBuffers<CR>", { desc = "Show Buffers" })
+
+require("copilot").setup({
+	suggestion = { enabled = false },
+	panel = { enabled = false },
+})
+require("copilot_cmp").setup()
