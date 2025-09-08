@@ -21,7 +21,16 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },  -- Treesitter for syntax highlighting
 	{ src = "https://github.com/linux-cultist/venv-selector.nvim" }, -- For Python virtualenv selection
 	{ src = "https://github.com/windwp/nvim-autopairs" },            -- Autopairs for brackets, parens, etc.
+	{ src = "https://github.com/zbirenbaum/copilot.lua" },           -- Copilot
 	{ src = "https://github.com/folke/snacks.nvim" },                -- Lot of QOL improvements
+	-- CMP
+	{ src = "https://github.com/hrsh7th/cmp-nvim-lsp" },             -- LSP source for nvim-cmp
+	{ src = "https://github.com/hrsh7th/nvim-cmp" },                 -- Completion engine
+	{ src = "https://github.com/hrsh7th/cmp-path" },                 -- Path source for nvim-cmp
+	{ src = "https://github.com/hrsh7th/cmp-cmdline" },              -- Cmdline source for nvim-cmp
+	{ src = "https://github.com/hrsh7th/cmp-vsnip" },                -- Vsnip source for nvim-cmp
+	{ src = "https://github.com/hrsh7th/vim-vsnip" },                -- Snippet engine
+	{ src = "https://github.com/zbirenbaum/copilot-cmp" },           -- Copilot cmp source
 })
 vim.cmd("colorscheme gruvbox-flat")
 vim.diagnostic.enable()
@@ -37,7 +46,33 @@ vim.keymap.set("n", "<leader>cr", ":source $MYVIMRC<CR>", { desc = "Reload confi
 vim.keymap.set("n", "<leader>pu", vim.pack.update, { desc = "Update plugins" })
 
 if Snacks == nil then
-	require("config.snacks")
+	-- Because snacks cannot be instantiated twice.
+	require("snacks").setup({
+		dashboard = { enabled = false },
+		profiler = { enabled = false },
+		-- Enabled plugins
+		bigfile = { enabled = true },
+		explorer = {
+			enabled = true,
+			replace_netrw = true,
+		},
+		indent = { enabled = true },
+		image = { enabled = true },
+		input = { enabled = true },
+		picker = { enabled = true },
+		notifier = { enabled = true },
+		quickfile = { enabled = true },
+		scope = { enabled = true },
+		scroll = { enabled = true },
+		statuscolumn = { enabled = true },
+		terminal = {
+			start_insert = false,
+			auto_insert = false,
+		}
+		-- words = { enabled = true },
+	})
+	vim.ui.input = Snacks.input
+	vim.ui.select = Snacks.picker.select
 end
 vim.keymap.set("n", "<C-`>", function() Snacks.terminal() end, { desc = "FileTree toggle" })
 -- Buffers and files
@@ -74,8 +109,6 @@ vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
 require("venv-selector").setup({})
 vim.keymap.set("n", "<leader>vs", ":VenvSelect<CR>", { desc = "Select Python virtualenv" })
-
--- require("config.buffers").setup({})
 
 pcall(require, "config.intree")
 require("nvim-web-devicons").setup({})
