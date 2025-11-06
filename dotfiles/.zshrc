@@ -116,6 +116,7 @@ compinit
 
 autoload -U +X bashcompinit && bashcompinit
 autoload -U ~/.zfunc/*
+source ~/.zshalias
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

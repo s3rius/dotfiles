@@ -1,7 +1,16 @@
 [user]
 	email = win10@list.ru
 	name = Pavel Kirilin
-  signingkey = win10@list.ru
+	signingkey = win10@list.ru
+[credential]
+		helper = store
+[sendemail]
+    smtpServer = smtp.mail.ru
+    smtpServerPort = 587
+    smtpEncryption = tls
+    smtpUser = win10@list.ru
+    # (Optional: we'll leave this commented out and use a different way)
+    # smtpPass = PASSWORD
 [commit]
   gpgsign = true
 [column]

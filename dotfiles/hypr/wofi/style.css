@@ -12,7 +12,7 @@ window {
     margin: 5px;
     border: 2px @--color-accent !important;
     background-color: @--color-bg;
-    color: white;
+    color: @--color-fg;
     font-size: 18px;
     font-weight: bold;
 }
@@ -57,7 +57,7 @@ window {
 #text {
     margin: 5px;
     border: none;
-    color: white;
+    color: @--color-fg;
 }
 
 #text:selected {

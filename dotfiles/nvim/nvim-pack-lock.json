@@ -1,0 +1,38 @@
+{
+  "plugins": {
+    "cmp-cmdline": [],
+    "cmp-nvim-lsp": [],
+    "cmp-path": [],
+    "cmp-vsnip": [],
+    "copilot-cmp": [],
+    "copilot.lua": {
+      "rev": "927053b"
+    },
+    "gruvbox-flat.nvim": [],
+    "hop.nvim": [],
+    "kitty-scrollback.nvim": [],
+    "nvim-autopairs": {
+      "rev": "7a2c97c"
+    },
+    "nvim-cmp": {
+      "rev": "106c4bc"
+    },
+    "nvim-lspconfig": {
+      "rev": "2010fc6"
+    },
+    "nvim-treesitter": [],
+    "nvim-web-devicons.nvim": [],
+    "snacks.nvim": {
+      "rev": "4438ee4"
+    },
+    "venv-selector.nvim": {
+      "rev": "1ef6564"
+    },
+    "vim-vsnip": {
+      "rev": "9bcfabe"
+    },
+    "which-key.nvim": {
+      "rev": "3aab214"
+    }
+  }
+}

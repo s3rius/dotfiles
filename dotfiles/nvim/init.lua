@@ -33,6 +33,7 @@ vim.pack.add({
 	{ src = "https://github.com/zbirenbaum/copilot-cmp" },           -- Copilot cmp source
 })
 vim.cmd("colorscheme gruvbox-flat")
+vim.cmd("highlight Normal guibg=NONE")
 vim.diagnostic.enable()
 vim.diagnostic.config({
 	virtual_text = true,
@@ -59,7 +60,14 @@ if Snacks == nil then
 		indent = { enabled = true },
 		image = { enabled = true },
 		input = { enabled = true },
-		picker = { enabled = true },
+		picker = {
+			enabled = true,
+			sources = {
+				explorer = {
+					follow_file = false,
+				}
+			}
+		},
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
 		scope = { enabled = true },
@@ -98,6 +106,12 @@ require("nvim-treesitter.configs").setup({
 	ignore_install = {},
 	modules = {},
 })
+
+require("copilot").setup({
+	suggestion = { enabled = false },
+	panel = { enabled = false },
+})
+require("copilot_cmp").setup({})
 
 require("config.lsp")
 vim.keymap.set("n", "<C-S-i>", vim.lsp.buf.format, { desc = "Format code" })

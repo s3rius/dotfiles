@@ -46,7 +46,14 @@ cmp.setup.cmdline(':', {
 	matching = { disallow_symbol_nonprefix_matching = false }
 })
 
+
+--------------------
+-- Servers config --
+--------------------
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 vim.lsp.config("rust_analyzer", {
+	capabilities = capabilities,
 	settings = {
 		["rust-analyzer"] = {
 			-- Other Settings ...
@@ -66,10 +73,8 @@ vim.lsp.config("rust_analyzer", {
 		},
 	},
 })
-vim.lsp.config("lexical", {
-	cmd = { "lexical" },
-})
 vim.lsp.config("ts_ls", {
+	capabilities = capabilities,
 	init_options = {
 		plugins = {
 			{
@@ -86,6 +91,7 @@ vim.lsp.config("ts_ls", {
 	},
 })
 vim.lsp.config("helm_ls", {
+	capabilities = capabilities,
 	settings = {
 		["helm-ls"] = {
 			yamlls = {
@@ -95,6 +101,7 @@ vim.lsp.config("helm_ls", {
 	},
 })
 vim.lsp.config("taplo", {
+	capabilities = capabilities,
 	settings = {
 		["taplo"] = {
 			root_markers = { "." },
@@ -102,23 +109,38 @@ vim.lsp.config("taplo", {
 	},
 })
 
-vim.lsp.enable({
-	"lua_ls",
-	"clangd",
-	"pyright",
-	"ruff",
-	"vue_ls",
-	"kotlin_language_server",
-	"texlab",
-	"marksman",
-	"terraformls",
-	"gopls",
-	"taplo",
-	"lexical",
-	"ts_ls",
-	"helm_ls",
-	"yamlls",
-	"rust_analyzer",
-	"zls",
-	-- "elixirls",
-})
+local function enable_with_capsabilities(servers, capabilities)
+	for _, server in ipairs(servers) do
+		vim.lsp.config(server, {
+			capabilities = capabilities,
+		})
+		vim.lsp.enable(server)
+	end
+end
+
+enable_with_capsabilities(
+	{
+		"lua_ls",
+		"clangd",
+		"pyright",
+		"ruff",
+		"vue_ls",
+		"kotlin_language_server",
+		"texlab",
+		"marksman",
+		"terraformls",
+		"gopls",
+		"taplo",
+		"lexical",
+		"ts_ls",
+		"helm_ls",
+		"yamlls",
+		"rust_analyzer",
+		"zls",
+		"neocmake",
+		"lexical",
+		"dartls",
+		-- "elixirls",
+	},
+	capabilities
+)
