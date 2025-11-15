@@ -1,57 +1,47 @@
 set_command = """
 hyprctl hyprpaper reload ,"{out}"
 
-cat << EOF > /home/s3rius/.config/hypr/colors.css
-@define-color --color-bg {second_accent_color};
-@define-color --color-fg {accent_color};
-@define-color --color-accent {second_accent_color_inverted};
+cat << EOF > ~/.config/hypr/colors.css
+@define-color --color-fg {colors.second_accent_color};
+@define-color --color-bg {colors.accent_color};
+@define-color --color-accent {colors.second_accent_color_inverted};
 EOF
 
-touch -m /home/s3rius/.config/hypr/waybar/style.css
-touch -m /home/s3rius/.config/hypr/wofi/style.css
+touch -m ~/.config/hypr/waybar/style.css
+touch -m ~/.config/hypr/wofi/style.css
 """
 
 reset_command = """
 # Set wallpaper
-hyprctl hyprpaper reload ,/home/s3rius/Pictures/wallpapers/gruvbox-girl.png
+hyprctl hyprpaper reload ,~/Pictures/wallpapers/gruvbox-girl.png
 
-cat << EOF > /home/s3rius/.config/hypr/colors.css
+cat << EOF > ~/.config/hypr/colors.css
 @define-color --color-bg #282828;
 @define-color --color-fg #EBDBB2;
 @define-color --color-accent #D65D0E;
 EOF
 
-touch -m /home/s3rius/.config/hypr/waybar/style.css
-touch -m /home/s3rius/.config/hypr/wofi/style.css
+touch -m ~/.config/hypr/waybar/style.css
+touch -m ~/.config/hypr/wofi/style.css
 """
 log_level = "DEBUG"
-screen_resolution_command = "xrandr | grep '*' | cut -d' ' -f4 | sort --human-numeric-sort --reverse | head -n 1"
 
+# Background
 [[layers]]
 name = "background"
 
 [[layers.processors]]
 name = "fit"
-
-[layers.processors.args]
-width = "{screen.width}"
-height = "{screen.height}"
+args = { width = "{screen.width}", height = "{screen.height}" }
 
 [[layers.processors]]
 name = "gaussian_blur"
+args = { radius = "20" }
 
-[layers.processors.args]
-radius = "6"
-
+# Foreground
 [[layers]]
 name = "foreground"
 
 [[layers.processors]]
 name = "resize"
-
-[layers.processors.args]
-width = 600
-height = 600
-
-[[layers.processors]]
-name = "circle"
+args = { width = 600, height = 600 }
