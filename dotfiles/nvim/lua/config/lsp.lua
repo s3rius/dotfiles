@@ -100,10 +100,10 @@ vim.lsp.config("helm_ls", {
 		},
 	},
 })
-vim.lsp.config("taplo", {
+vim.lsp.config("tombi", {
 	capabilities = capabilities,
 	settings = {
-		["taplo"] = {
+		["tombi"] = {
 			root_markers = { "." },
 		},
 	},
@@ -130,8 +130,8 @@ enable_with_capsabilities(
 		"marksman",
 		"terraformls",
 		"gopls",
-		"taplo",
 		"lexical",
+		"tombi",
 		"ts_ls",
 		"helm_ls",
 		"yamlls",

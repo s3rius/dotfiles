@@ -1,12 +1,14 @@
 {
   "plugins": {
     "cmp-cmdline": [],
-    "cmp-nvim-lsp": [],
+    "cmp-nvim-lsp": {
+      "rev": "cbc7b02"
+    },
     "cmp-path": [],
     "cmp-vsnip": [],
     "copilot-cmp": [],
     "copilot.lua": {
-      "rev": "927053b"
+      "rev": "e919876"
     },
     "gruvbox-flat.nvim": [],
     "hop.nvim": [],
@@ -15,15 +17,19 @@
       "rev": "7a2c97c"
     },
     "nvim-cmp": {
-      "rev": "106c4bc"
+      "rev": "d78fb3b"
     },
     "nvim-lspconfig": {
-      "rev": "2010fc6"
+      "rev": "c6f05c0"
     },
     "nvim-treesitter": [],
     "nvim-web-devicons.nvim": [],
+    "oil.nvim": {
+      "rev": "7e1cd77",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
     "snacks.nvim": {
-      "rev": "4438ee4"
+      "rev": "3c5c23b"
     },
     "venv-selector.nvim": {
       "rev": "1ef6564"

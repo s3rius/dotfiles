@@ -31,6 +31,7 @@ vim.pack.add({
 	{ src = "https://github.com/hrsh7th/cmp-vsnip" },                -- Vsnip source for nvim-cmp
 	{ src = "https://github.com/hrsh7th/vim-vsnip" },                -- Snippet engine
 	{ src = "https://github.com/zbirenbaum/copilot-cmp" },           -- Copilot cmp source
+	{ src = "https://github.com/stevearc/oil.nvim" },                -- OIL file picker
 })
 vim.cmd("colorscheme gruvbox-flat")
 vim.cmd("highlight Normal guibg=NONE")
@@ -54,19 +55,13 @@ if Snacks == nil then
 		-- Enabled plugins
 		bigfile = { enabled = true },
 		explorer = {
-			enabled = true,
-			replace_netrw = true,
+			enabled = false,
 		},
 		indent = { enabled = true },
 		image = { enabled = true },
 		input = { enabled = true },
 		picker = {
 			enabled = true,
-			sources = {
-				explorer = {
-					follow_file = false,
-				}
-			}
 		},
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
@@ -87,7 +82,6 @@ vim.keymap.set("n", "<C-`>", function() Snacks.terminal() end, { desc = "FileTre
 vim.keymap.set("n", "<leader>bl", function() Snacks.picker.buffers({ current = false, sort_lastused = true }) end,
 	{ desc = "Buffers list" })
 vim.keymap.set("n", "<leader>bc", function() Snacks.bufdelete() end, { desc = "Buffer close" })
-vim.keymap.set("n", "<leader>ft", function() Snacks.explorer() end, { desc = "File Tree" })
 -- Picking
 vim.keymap.set("n", "<leader>pf", function() Snacks.picker.files() end, { desc = "Pick files" })
 vim.keymap.set("n", "<leader>ph", function() Snacks.picker.help() end, { desc = "Pick help" })
@@ -97,6 +91,12 @@ vim.keymap.set("n", "<leader>pg", function() Snacks.picker.grep() end, { desc = 
 require("hop").setup()
 vim.keymap.set("n", "<leader><leader>w", ":HopWordAC<CR>", { desc = "EasyMotion forward" })
 vim.keymap.set("n", "<leader><leader>b", ":HopWordBC<CR>", { desc = "Easy motion backward" })
+
+require("oil").setup({
+  default_file_explorer = true,
+
+})
+vim.keymap.set("n", "<leader>ft", "<CMD>Oil --float<CR>", { desc = "File Tree" })
 
 require("nvim-treesitter.configs").setup({
 	sync_install = true,
