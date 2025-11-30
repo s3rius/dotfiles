@@ -1,44 +1,80 @@
 {
   "plugins": {
-    "cmp-cmdline": [],
+    "cmp-cmdline": {
+      "rev": "d126061",
+      "src": "https://github.com/hrsh7th/cmp-cmdline"
+    },
     "cmp-nvim-lsp": {
-      "rev": "cbc7b02"
+      "rev": "cbc7b02",
+      "src": "https://github.com/hrsh7th/cmp-nvim-lsp"
     },
-    "cmp-path": [],
-    "cmp-vsnip": [],
-    "copilot-cmp": [],
+    "cmp-path": {
+      "rev": "c642487",
+      "src": "https://github.com/hrsh7th/cmp-path"
+    },
+    "cmp-vsnip": {
+      "rev": "989a8a7",
+      "src": "https://github.com/hrsh7th/cmp-vsnip"
+    },
+    "copilot-cmp": {
+      "rev": "15fc12a",
+      "src": "https://github.com/zbirenbaum/copilot-cmp"
+    },
     "copilot.lua": {
-      "rev": "e919876"
+      "rev": "4383e05",
+      "src": "https://github.com/zbirenbaum/copilot.lua"
     },
-    "gruvbox-flat.nvim": [],
-    "hop.nvim": [],
-    "kitty-scrollback.nvim": [],
+    "gruvbox-flat.nvim": {
+      "rev": "1dc35c8",
+      "src": "https://github.com/eddyekofo94/gruvbox-flat.nvim"
+    },
+    "hop.nvim": {
+      "rev": "707049f",
+      "src": "https://github.com/smoka7/hop.nvim"
+    },
+    "kitty-scrollback.nvim": {
+      "rev": "36d19dc",
+      "src": "https://github.com/mikesmithgh/kitty-scrollback.nvim"
+    },
     "nvim-autopairs": {
-      "rev": "7a2c97c"
+      "rev": "7a2c97c",
+      "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-cmp": {
-      "rev": "d78fb3b"
+      "rev": "d97d85e",
+      "src": "https://github.com/hrsh7th/nvim-cmp"
     },
     "nvim-lspconfig": {
-      "rev": "c6f05c0"
+      "rev": "b2441c9",
+      "src": "https://github.com/neovim/nvim-lspconfig"
     },
-    "nvim-treesitter": [],
-    "nvim-web-devicons.nvim": [],
+    "nvim-treesitter": {
+      "rev": "42fc28ba",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "nvim-web-devicons.nvim": {
+      "rev": "50b5b06",
+      "src": "https://github.com/jacobdot/nvim-web-devicons.nvim"
+    },
     "oil.nvim": {
-      "rev": "7e1cd77",
+      "rev": "01cb3a8",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "snacks.nvim": {
-      "rev": "3c5c23b"
+      "rev": "fe7cfe9",
+      "src": "https://github.com/folke/snacks.nvim"
     },
     "venv-selector.nvim": {
-      "rev": "1ef6564"
+      "rev": "58bae72",
+      "src": "https://github.com/linux-cultist/venv-selector.nvim"
     },
     "vim-vsnip": {
-      "rev": "9bcfabe"
+      "rev": "9bcfabe",
+      "src": "https://github.com/hrsh7th/vim-vsnip"
     },
     "which-key.nvim": {
-      "rev": "3aab214"
+      "rev": "3aab214",
+      "src": "https://github.com/folke/which-key.nvim"
     }
   }
 }

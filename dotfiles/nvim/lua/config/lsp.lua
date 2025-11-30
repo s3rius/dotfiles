@@ -109,6 +109,15 @@ vim.lsp.config("tombi", {
 	},
 })
 
+vim.lsp.config("tinymist", {
+	capabilities = capabilities,
+	settings = {
+		formatterMode = "typstyle",
+		exportPdf = "onType",
+		semanticTokens = "disable"
+	}
+})
+
 local function enable_with_capsabilities(servers, capabilities)
 	for _, server in ipairs(servers) do
 		vim.lsp.config(server, {
@@ -140,6 +149,7 @@ enable_with_capsabilities(
 		"neocmake",
 		"lexical",
 		"dartls",
+		"tinymist",
 		-- "elixirls",
 	},
 	capabilities

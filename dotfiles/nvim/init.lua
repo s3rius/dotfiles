@@ -58,7 +58,15 @@ if Snacks == nil then
 			enabled = false,
 		},
 		indent = { enabled = true },
-		image = { enabled = true },
+		---@class snake.image.Config
+		image = {
+			enabled = true,
+			doc = {
+				enabled = true,
+				inline = false,
+				float = true,
+			}
+		},
 		input = { enabled = true },
 		picker = {
 			enabled = true,
@@ -89,8 +97,10 @@ vim.keymap.set("n", "<leader>pr", function() Snacks.picker.resume() end, { desc 
 vim.keymap.set("n", "<leader>pg", function() Snacks.picker.grep() end, { desc = "Pick grep" })
 
 require("hop").setup()
-vim.keymap.set({ "n", "o", "v" }, "<leader><leader>w", "<cmd>HopWordAC<CR>", { noremap = true, desc = "EasyMotion forward" })
-vim.keymap.set({ "n", "o", "v" }, "<leader><leader>b", "<cmd>HopWordBC<CR>", { noremap = true, desc = "Easy motion backward" })
+vim.keymap.set({ "n", "o", "v" }, "<leader><leader>w", "<cmd>HopWordAC<CR>",
+	{ noremap = true, desc = "EasyMotion forward" })
+vim.keymap.set({ "n", "o", "v" }, "<leader><leader>b", "<cmd>HopWordBC<CR>",
+	{ noremap = true, desc = "Easy motion backward" })
 
 require("oil").setup({
 	default_file_explorer = true,
