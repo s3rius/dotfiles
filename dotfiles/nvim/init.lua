@@ -89,11 +89,11 @@ vim.keymap.set("n", "<leader>pr", function() Snacks.picker.resume() end, { desc 
 vim.keymap.set("n", "<leader>pg", function() Snacks.picker.grep() end, { desc = "Pick grep" })
 
 require("hop").setup()
-vim.keymap.set("n", "<leader><leader>w", ":HopWordAC<CR>", { desc = "EasyMotion forward" })
-vim.keymap.set("n", "<leader><leader>b", ":HopWordBC<CR>", { desc = "Easy motion backward" })
+vim.keymap.set({ "n", "o", "v" }, "<leader><leader>w", "<cmd>HopWordAC<CR>", { noremap = true, desc = "EasyMotion forward" })
+vim.keymap.set({ "n", "o", "v" }, "<leader><leader>b", "<cmd>HopWordBC<CR>", { noremap = true, desc = "Easy motion backward" })
 
 require("oil").setup({
-  default_file_explorer = true,
+	default_file_explorer = true,
 
 })
 vim.keymap.set("n", "<leader>ft", "<CMD>Oil --float<CR>", { desc = "File Tree" })
