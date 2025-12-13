@@ -36,6 +36,10 @@
       "rev": "36d19dc",
       "src": "https://github.com/mikesmithgh/kitty-scrollback.nvim"
     },
+    "kubernetes.nvim": {
+      "rev": "44daf998345628a1a7034e3aaa31f4e05e4dde7c",
+      "src": "https://github.com/diogo464/kubernetes.nvim"
+    },
     "nvim-autopairs": {
       "rev": "7a2c97c",
       "src": "https://github.com/windwp/nvim-autopairs"

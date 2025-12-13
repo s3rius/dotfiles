@@ -10,6 +10,8 @@ export RUST_BACKTRACE="1"
 export GOPATH="$HOME/.go"
 export MANPAGER='/usr/bin/nvim +Man!'
 export AWS_DEFAULT_REGION="eu-west-1"
+export NODE_PATH=$HOME/.local/lib/node_modules:$NODE_PATH
+export npm_config_prefix=$HOME/.local
 
 path=($path[@] ~/.poetry/bin/ ~/.local/bin/ ~/.pyenv/bin ~/.cargo/bin ~/.krew/bin /opt/sonar-scanner/bin ~/.go/bin /opt/google-cloud-cli/bin)
 fpath=($fpath[@] ~/.zfunc)

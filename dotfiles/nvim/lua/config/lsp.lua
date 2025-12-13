@@ -118,6 +118,17 @@ vim.lsp.config("tinymist", {
 	}
 })
 
+-- vim.lsp.config("yamlls", {
+-- 	capabilities = capabilities,
+-- 	settings = {
+-- 		yaml = {
+-- 			schemas = {
+-- 				[require('kubernetes').yamlls_schema()] = "*.yaml",
+-- 			},
+-- 		}
+-- 	}
+-- })
+
 local function enable_with_capsabilities(servers, capabilities)
 	for _, server in ipairs(servers) do
 		vim.lsp.config(server, {
