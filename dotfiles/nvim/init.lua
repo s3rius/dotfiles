@@ -11,6 +11,20 @@ vim.opt.completeopt = { "menuone", "noselect", "popup" }
 vim.o.winborder = 'rounded'
 vim.opt.termguicolors = true
 
+local hooks = function(ev)
+	local name, kind = ev.data.spec.name, ev.data.kind
+	local print_info = function() print("Running", name, kind, "hook") end
+	if name == 'LuaSnip' and (kind == 'install' or kind == 'update') then
+		print_info()
+		vim.system({ 'make', 'install_jsregexp' }, { cwd = ev.data.path }):wait()
+	end
+	if name == 'blink.cmp' and (kind == 'install' or kind == 'update') then
+		print_info()
+		vim.system({ 'cargo', '+nightly', 'build', '--release' }, { cwd = ev.data.path, text = true }):wait()
+	end
+end
+vim.api.nvim_create_autocmd('PackChanged', { callback = hooks })
+
 vim.pack.add({
 	{ src = "https://github.com/eddyekofo94/gruvbox-flat.nvim" },    -- Gruvbox theme
 	{ src = "https://github.com/jacobdot/nvim-web-devicons.nvim" },  -- Icons
@@ -23,15 +37,14 @@ vim.pack.add({
 	{ src = "https://github.com/windwp/nvim-autopairs" },            -- Autopairs for brackets, parens, etc.
 	{ src = "https://github.com/zbirenbaum/copilot.lua" },           -- Copilot
 	{ src = "https://github.com/folke/snacks.nvim" },                -- Lot of QOL improvements
-	-- CMP
-	{ src = "https://github.com/hrsh7th/cmp-nvim-lsp" },             -- LSP source for nvim-cmp
-	{ src = "https://github.com/hrsh7th/nvim-cmp" },                 -- Completion engine
-	{ src = "https://github.com/hrsh7th/cmp-path" },                 -- Path source for nvim-cmp
-	{ src = "https://github.com/hrsh7th/cmp-cmdline" },              -- Cmdline source for nvim-cmp
-	{ src = "https://github.com/hrsh7th/cmp-vsnip" },                -- Vsnip source for nvim-cmp
-	{ src = "https://github.com/hrsh7th/vim-vsnip" },                -- Snippet engine
-	{ src = "https://github.com/zbirenbaum/copilot-cmp" },           -- Copilot cmp source
-	{ src = "https://github.com/stevearc/oil.nvim" },                -- OIL file picker
+	{
+		src = "https://github.com/saghen/blink.cmp",                   -- For autocompletion
+		version = vim.version.range('1'),
+	},
+	{ src = "https://github.com/L3MON4D3/LuaSnip" }, -- For snippets
+	{ src = "https://github.com/fang2hou/blink-copilot" }, -- Blink+copilot integration
+	{ src = "https://github.com/Dynge/gitmoji.nvim" },    -- Gitmoji
+	{ src = "https://github.com/stevearc/oil.nvim" },     -- OIL file picker
 })
 vim.cmd("colorscheme gruvbox-flat")
 vim.cmd("highlight Normal guibg=NONE")
@@ -120,8 +133,11 @@ require("nvim-treesitter.configs").setup({
 require("copilot").setup({
 	suggestion = { enabled = false },
 	panel = { enabled = false },
+	filetypes = {
+		markdown = true,
+		help = true,
+	},
 })
-require("copilot_cmp").setup({})
 
 require("config.lsp")
 vim.keymap.set("n", "<C-S-i>", vim.lsp.buf.format, { desc = "Format code" })
@@ -139,3 +155,4 @@ require("nvim-web-devicons").setup({})
 require("which-key").setup({})
 require("nvim-autopairs").setup({})
 require("kitty-scrollback").setup()
+

@@ -1,5 +1,18 @@
 {
   "plugins": {
+    "LuaSnip": {
+      "rev": "3732756842a2f7e0e76a7b0487e9692072857277",
+      "src": "https://github.com/L3MON4D3/LuaSnip"
+    },
+    "blink-copilot": {
+      "rev": "7ad8209b2f880a2840c94cdcd80ab4dc511d4f39",
+      "src": "https://github.com/fang2hou/blink-copilot"
+    },
+    "blink.cmp": {
+      "rev": "b19413d214068f316c78978b08264ed1c41830ec",
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "1.0.0 - 2.0.0"
+    },
     "cmp-cmdline": {
       "rev": "d126061",
       "src": "https://github.com/hrsh7th/cmp-cmdline"
@@ -21,8 +34,12 @@
       "src": "https://github.com/zbirenbaum/copilot-cmp"
     },
     "copilot.lua": {
-      "rev": "4383e05",
+      "rev": "a064570939f23ef155698654c98c81e0fc2dc54a",
       "src": "https://github.com/zbirenbaum/copilot.lua"
+    },
+    "gitmoji.nvim": {
+      "rev": "2659de229c2b26d50732f1220700eebbcdb2d6ef",
+      "src": "https://github.com/Dynge/gitmoji.nvim"
     },
     "gruvbox-flat.nvim": {
       "rev": "1dc35c8",
@@ -41,7 +58,7 @@
       "src": "https://github.com/diogo464/kubernetes.nvim"
     },
     "nvim-autopairs": {
-      "rev": "7a2c97c",
+      "rev": "d9e44e54384e5b0f3536339c65484f2e41b528e3",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-cmp": {
@@ -49,7 +66,7 @@
       "src": "https://github.com/hrsh7th/nvim-cmp"
     },
     "nvim-lspconfig": {
-      "rev": "b2441c9",
+      "rev": "0044d0987ef7e624d04141d0f90d0481fd3c3663",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -61,7 +78,7 @@
       "src": "https://github.com/jacobdot/nvim-web-devicons.nvim"
     },
     "oil.nvim": {
-      "rev": "01cb3a8",
+      "rev": "cbcb3f997f6f261c577b943ec94e4ef55108dd95",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "snacks.nvim": {
