@@ -39,9 +39,9 @@ vim.pack.add({
 	{ src = "https://github.com/folke/snacks.nvim" },                -- Lot of QOL improvements
 	{
 		src = "https://github.com/saghen/blink.cmp",                   -- For autocompletion
-		version = vim.version.range('1'),
+		version = "main",
 	},
-	{ src = "https://github.com/L3MON4D3/LuaSnip" }, -- For snippets
+	{ src = "https://github.com/L3MON4D3/LuaSnip" },      -- For snippets
 	{ src = "https://github.com/fang2hou/blink-copilot" }, -- Blink+copilot integration
 	{ src = "https://github.com/Dynge/gitmoji.nvim" },    -- Gitmoji
 	{ src = "https://github.com/stevearc/oil.nvim" },     -- OIL file picker
@@ -155,4 +155,3 @@ require("nvim-web-devicons").setup({})
 require("which-key").setup({})
 require("nvim-autopairs").setup({})
 require("kitty-scrollback").setup()
-

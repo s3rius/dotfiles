@@ -9,9 +9,9 @@
       "src": "https://github.com/fang2hou/blink-copilot"
     },
     "blink.cmp": {
-      "rev": "b19413d214068f316c78978b08264ed1c41830ec",
+      "rev": "f51535d3eed7a21f739cb3c19ea87bb1a8400c65",
       "src": "https://github.com/saghen/blink.cmp",
-      "version": "1.0.0 - 2.0.0"
+      "version": "'main'"
     },
     "cmp-cmdline": {
       "rev": "d126061",
@@ -34,7 +34,7 @@
       "src": "https://github.com/zbirenbaum/copilot-cmp"
     },
     "copilot.lua": {
-      "rev": "a064570939f23ef155698654c98c81e0fc2dc54a",
+      "rev": "508d8b00390ff3046323f61187a57069910c6e17",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "gitmoji.nvim": {
