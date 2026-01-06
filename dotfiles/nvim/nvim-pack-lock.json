@@ -9,7 +9,7 @@
       "src": "https://github.com/fang2hou/blink-copilot"
     },
     "blink.cmp": {
-      "rev": "f51535d3eed7a21f739cb3c19ea87bb1a8400c65",
+      "rev": "6a4914ca987453464a7dfc7fc237a992adb567d0",
       "src": "https://github.com/saghen/blink.cmp",
       "version": "'main'"
     },
@@ -34,7 +34,7 @@
       "src": "https://github.com/zbirenbaum/copilot-cmp"
     },
     "copilot.lua": {
-      "rev": "508d8b00390ff3046323f61187a57069910c6e17",
+      "rev": "e78d1ffebdf6ccb6fd8be4e6898030c1cf5f9b64",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "gitmoji.nvim": {
@@ -50,7 +50,7 @@
       "src": "https://github.com/smoka7/hop.nvim"
     },
     "kitty-scrollback.nvim": {
-      "rev": "36d19dc",
+      "rev": "8026a3715a93c7302d6bc4979f64102885ad1fc7",
       "src": "https://github.com/mikesmithgh/kitty-scrollback.nvim"
     },
     "kubernetes.nvim": {
@@ -58,15 +58,15 @@
       "src": "https://github.com/diogo464/kubernetes.nvim"
     },
     "nvim-autopairs": {
-      "rev": "d9e44e54384e5b0f3536339c65484f2e41b528e3",
+      "rev": "c2a0dd0d931d0fb07665e1fedb1ea688da3b80b4",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-cmp": {
-      "rev": "d97d85e",
+      "rev": "85bbfad83f804f11688d1ab9486b459e699292d6",
       "src": "https://github.com/hrsh7th/nvim-cmp"
     },
     "nvim-lspconfig": {
-      "rev": "0044d0987ef7e624d04141d0f90d0481fd3c3663",
+      "rev": "0b38bc74487e73489624d61396af7805af9cc75f",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -78,7 +78,7 @@
       "src": "https://github.com/jacobdot/nvim-web-devicons.nvim"
     },
     "oil.nvim": {
-      "rev": "cbcb3f997f6f261c577b943ec94e4ef55108dd95",
+      "rev": "81b8a91735ad5cd24a6b3137f14a89f19176364f",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "snacks.nvim": {

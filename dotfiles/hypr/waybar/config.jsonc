@@ -33,7 +33,7 @@
         "states": {
             "critical": 15,
         },
-        "format": "{icon}   {capacity}",
+        "format": "{icon}   {capacity}%",
         "format-icons": ["", "", "", "", ""],
         "format-plugged": "󱐋 {capacity}",
         "max-length": 25

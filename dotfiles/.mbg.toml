@@ -1,5 +1,5 @@
 set_command = """
-hyprctl hyprpaper reload ,"{out}"
+hyprctl hyprpaper wallpaper ,"{out}","cover"
 
 cat << EOF > ~/.config/hypr/colors.css
 @define-color --color-fg {colors.second_accent_color};
@@ -13,7 +13,7 @@ touch -m ~/.config/hypr/wofi/style.css
 
 reset_command = """
 # Set wallpaper
-hyprctl hyprpaper reload ,~/Pictures/wallpapers/gruvbox-girl.png
+hyprctl hyprpaper wallpaper ,"~/Pictures/wallpapers/gruvbox-girl.png","cover"
 
 cat << EOF > ~/.config/hypr/colors.css
 @define-color --color-bg #282828;
