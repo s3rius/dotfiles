@@ -12,6 +12,8 @@ export MANPAGER='/usr/bin/nvim +Man!'
 export AWS_DEFAULT_REGION="eu-west-1"
 export NODE_PATH=$HOME/.local/lib/node_modules:$NODE_PATH
 export npm_config_prefix=$HOME/.local
+export JAVA_HOME="/usr/lib/jvm/default"
+export ANDROID_HOME=$HOME/.android/sdk
 
-path=($path[@] ~/.poetry/bin/ ~/.local/bin/ ~/.pyenv/bin ~/.cargo/bin ~/.krew/bin /opt/sonar-scanner/bin ~/.go/bin /opt/google-cloud-cli/bin)
+path=($path[@] ~/.poetry/bin/ ~/.local/bin/ ~/.pyenv/bin ~/.cargo/bin ~/.krew/bin /opt/sonar-scanner/bin ~/.go/bin /opt/google-cloud-cli/bin /opt/android-sdk/tools/ /opt/android-sdk/platform-tools)
 fpath=($fpath[@] ~/.zfunc)

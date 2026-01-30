@@ -146,6 +146,7 @@ enable_with_capsabilities(
 		"lexical",
 		"dartls",
 		"tinymist",
+		"gdscript",
 		-- "elixirls",
 	},
 	capabilities
