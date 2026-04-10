@@ -1,9 +1,13 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+vim.g.doge_doc_standard_python = "sphinx"
+vim.g.doge_python_settings = { single_quotes = 0, omit_redundant_param_types = 1 }
+
 
 -- Basic settings
 vim.o.tabstop = 2
 vim.o.relativenumber = true
+vim.o.ignorecase = true
 vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
 vim.opt.swapfile = false
@@ -14,6 +18,7 @@ vim.opt.termguicolors = true
 local hooks = function(ev)
 	local name, kind = ev.data.spec.name, ev.data.kind
 	local print_info = function() print("Running", name, kind, "hook") end
+	print_info()
 	if name == 'LuaSnip' and (kind == 'install' or kind == 'update') then
 		print_info()
 		vim.system({ 'make', 'install_jsregexp' }, { cwd = ev.data.path }):wait()
@@ -21,6 +26,10 @@ local hooks = function(ev)
 	if name == 'blink.cmp' and (kind == 'install' or kind == 'update') then
 		print_info()
 		vim.system({ 'cargo', '+nightly', 'build', '--release' }, { cwd = ev.data.path, text = true }):wait()
+	end
+	if name == 'vim-doge' and (kind == 'install' or kind == 'update') then
+		print_info()
+		vim.system({ 'sh', 'scripts/install.sh' }, { cwd = ev.data.path, text = true }):wait()
 	end
 end
 vim.api.nvim_create_autocmd('PackChanged', { callback = hooks })
@@ -45,6 +54,7 @@ vim.pack.add({
 	{ src = "https://github.com/fang2hou/blink-copilot" }, -- Blink+copilot integration
 	{ src = "https://github.com/Dynge/gitmoji.nvim" },    -- Gitmoji
 	{ src = "https://github.com/stevearc/oil.nvim" },     -- OIL file picker
+	{ src = "https://github.com/kkoomen/vim-doge" },      -- Doge for docstring generation
 })
 vim.cmd("colorscheme gruvbox-flat")
 vim.cmd("highlight Normal guibg=NONE")
@@ -108,6 +118,7 @@ vim.keymap.set("n", "<leader>pf", function() Snacks.picker.files() end, { desc =
 vim.keymap.set("n", "<leader>ph", function() Snacks.picker.help() end, { desc = "Pick help" })
 vim.keymap.set("n", "<leader>pr", function() Snacks.picker.resume() end, { desc = "Pick resume" })
 vim.keymap.set("n", "<leader>pg", function() Snacks.picker.grep() end, { desc = "Pick grep" })
+vim.keymap.set("n", "<leader>ls", function() Snacks.picker.lsp_symbols() end, { desc = "LSP Symbols" })
 
 require("hop").setup()
 vim.keymap.set({ "n", "o", "v" }, "<leader><leader>w", "<cmd>HopWordAC<CR>",

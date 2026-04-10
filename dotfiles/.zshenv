@@ -1,6 +1,6 @@
 typeset -U path
 export PYENV_ROOT=~/.pyenv/
-export EDITOR=/usr/bin/nvim
+export EDITOR=nvim
 export LC_ALL="$LANG"
 export TERM=xterm-256color
 export K3D_FIX_MOUNTS=1
@@ -17,3 +17,4 @@ export ANDROID_HOME=$HOME/.android/sdk
 
 path=($path[@] ~/.poetry/bin/ ~/.local/bin/ ~/.pyenv/bin ~/.cargo/bin ~/.krew/bin /opt/sonar-scanner/bin ~/.go/bin /opt/google-cloud-cli/bin /opt/android-sdk/tools/ /opt/android-sdk/platform-tools)
 fpath=($fpath[@] ~/.zfunc)
+. "/home/s3rius/.local/share/bob/env/env.sh"
