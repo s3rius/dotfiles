@@ -75,6 +75,18 @@ vim.lsp.config("ts_ls", {
 		"vue",
 	},
 })
+vim.lsp.config("jsonls", {
+	capabilities = capabilities,
+	settings = {
+		json = {
+			schemas = {
+				urls = {
+					"https://json.schemastore.org/",
+				},
+			},
+		},
+	},
+})
 vim.lsp.config("helm_ls", {
 	capabilities = capabilities,
 	settings = {
@@ -138,6 +150,7 @@ enable_with_capsabilities(
 		"lexical",
 		"tombi",
 		"ts_ls",
+		"jsonls",
 		"helm_ls",
 		"yamlls",
 		"rust_analyzer",

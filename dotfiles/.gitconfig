@@ -1,7 +1,7 @@
 [user]
 	email = s3riussan@gmail.com
 	name = Pavel Kirilin
-	signingkey = win10@list.ru
+	signingkey = s3riussan@gmail.com
 [credential]
 	helper = store
 [sendemail]
@@ -13,6 +13,7 @@
 	# smtpPass = PASSWORD
 [commit]
 	gpgsign = true
+	verbose = true
 [column]
 	ui = auto
 [branch]
@@ -40,8 +41,6 @@
 
 [help]
 	autocorrect = prompt
-[commit]
-	verbose = true
 [rerere]
 	enabled = true
 	autoupdate = true

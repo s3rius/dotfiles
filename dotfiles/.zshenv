@@ -1,6 +1,6 @@
 typeset -U path
 export PYENV_ROOT=~/.pyenv/
-export EDITOR=nvim
+export EDITOR=~/.local/share/bob/nvim-bin/nvim
 export LC_ALL="$LANG"
 export TERM=xterm-256color
 export K3D_FIX_MOUNTS=1

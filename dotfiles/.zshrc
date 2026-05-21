@@ -68,7 +68,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo docker docker-compose man autojump git-flow gpg-agent archlinux alias-finder aws nats)
+plugins=(git sudo docker docker-compose man autojump git-flow gpg-agent archlinux alias-finder aws nats jj)
 
 source $ZSH/oh-my-zsh.sh
 alias ls="eza --icons=always --group-directories-first --color=always --git"
