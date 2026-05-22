@@ -11,7 +11,11 @@
     "blink.cmp": {
       "rev": "c573a15a62bd0bfd4006ee0849b24f5404395500",
       "src": "https://github.com/saghen/blink.cmp",
-      "version": "'main'"
+      "version": "1.0.0 - 2.0.0"
+    },
+    "blink.lib": {
+      "rev": "f29d8bac6549bc1e7d699c83f680823d7def98bd",
+      "src": "https://github.com/saghen/blink.lib"
     },
     "cmp-cmdline": {
       "rev": "d126061",
@@ -85,6 +89,10 @@
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
       "src": "https://github.com/folke/snacks.nvim"
     },
+    "token": {
+      "rev": "51f39cbbb7154e08741de07996b34baf98703bdf",
+      "src": "https://github.com/ThorstenRhau/token"
+    },
     "venv-selector.nvim": {
       "rev": "bcb2f58533c59b01565285eba49693f00bc460f5",
       "src": "https://github.com/linux-cultist/venv-selector.nvim"
@@ -92,6 +100,10 @@
     "vim-doge": {
       "rev": "03a84072ef21b205237c77986c78914395d646c3",
       "src": "https://github.com/kkoomen/vim-doge"
+    },
+    "vim-polyglot": {
+      "rev": "f061eddb7cdcc614c8406847b2bfb53099832a4e",
+      "src": "https://github.com/vim-polyglot/vim-polyglot"
     },
     "vim-vsnip": {
       "rev": "9bcfabe",

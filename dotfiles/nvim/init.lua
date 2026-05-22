@@ -41,15 +41,16 @@ vim.pack.add({
 	{ src = "https://github.com/smoka7/hop.nvim" },                  -- EasyMotion
 	{ src = "https://github.com/folke/which-key.nvim" },             -- Small key helper
 	{ src = "https://github.com/mikesmithgh/kitty-scrollback.nvim" }, -- Kitty scrollback integration
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },  -- Treesitter for syntax highlighting
 	{ src = "https://github.com/linux-cultist/venv-selector.nvim" }, -- For Python virtualenv selection
 	{ src = "https://github.com/windwp/nvim-autopairs" },            -- Autopairs for brackets, parens, etc.
 	{ src = "https://github.com/zbirenbaum/copilot.lua" },           -- Copilot
 	{ src = "https://github.com/folke/snacks.nvim" },                -- Lot of QOL improvements
+	{ src = "https://github.com/vim-polyglot/vim-polyglot" },        -- For syntax highlighting
 	{
 		src = "https://github.com/saghen/blink.cmp",                   -- For autocompletion
-		version = "main",
+		version = vim.version.range('^1'),
 	},
+	-- { src = "https://github.com/saghen/blink.lib", version = "main" },      -- For blink.
 	{ src = "https://github.com/L3MON4D3/LuaSnip" },      -- For snippets
 	{ src = "https://github.com/fang2hou/blink-copilot" }, -- Blink+copilot integration
 	{ src = "https://github.com/Dynge/gitmoji.nvim" },    -- Gitmoji
@@ -131,15 +132,6 @@ require("oil").setup({
 
 })
 vim.keymap.set("n", "<leader>ft", "<CMD>Oil --float<CR>", { desc = "File Tree" })
-
-require("nvim-treesitter.configs").setup({
-	sync_install = true,
-	highlight = { enable = true },
-	indent = { enable = true },
-	auto_install = true,
-	ignore_install = {},
-	modules = {},
-})
 
 require("copilot").setup({
 	suggestion = { enabled = false },
