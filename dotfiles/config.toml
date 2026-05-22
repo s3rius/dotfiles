@@ -24,3 +24,8 @@ behavior = "own"
 
 [ui]
 default-command = "log"
+conflict-marker-style = "git"
+diff-editor = ":builtin"
+
+[ui.graph]
+style = "curved"
