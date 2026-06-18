@@ -1,3 +1,7 @@
 
 [settings]
 idiomatic_version_file_enable_tools = []
+
+[tools]
+terraform = "latest"
+usage = "latest"
