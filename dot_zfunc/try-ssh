@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+until ssh -o ConnectTimeout=3 $@
+do
+    echo "Trying to connect to $@"
+    sleep 3
+    clear
+done
