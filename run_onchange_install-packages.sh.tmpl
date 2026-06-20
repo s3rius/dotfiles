@@ -27,5 +27,11 @@ if [ ! -e "{{ .skip_if_exists }}" ]; then
     {{- end }}
 fi
 {{- end }}
-
+{{ end -}}
+{{ range .services.system }}
+sudo systemctl enable {{ . }}
 {{- end }}
+{{ range .services.user }}
+sudo systemctl --user enable {{ . }}
+{{- end }}
+
