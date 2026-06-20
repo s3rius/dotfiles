@@ -4,13 +4,6 @@
 	signingkey = s3riussan@gmail.com
 [credential]
 	helper = store
-[sendemail]
-	smtpServer = smtp.mail.ru
-	smtpServerPort = 587
-	smtpEncryption = tls
-	smtpUser = win10@list.ru
-	# (Optional: we'll leave this commented out and use a different way)
-	# smtpPass = PASSWORD
 [commit]
 	gpgsign = true
 	verbose = true
@@ -38,9 +31,9 @@
 	all = true
 
 # why the hell not?
-
 [help]
 	autocorrect = prompt
+
 [rerere]
 	enabled = true
 	autoupdate = true

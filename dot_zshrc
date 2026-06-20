@@ -92,7 +92,6 @@ alias cat="bat"
 alias dips='docker compose ps -q | xargs docker inspect -f "{{.Name}} {{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
 alias мшь="$EDITOR"
 alias tf="terraform"
-alias vterm="vim -c \"startinsert\" -c \":term\""
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -120,7 +119,6 @@ source ~/.zshalias
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 # eval "$(mise activate zsh)"
 
