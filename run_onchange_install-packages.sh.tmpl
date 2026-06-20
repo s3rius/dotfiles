@@ -32,6 +32,6 @@ fi
 sudo systemctl enable {{ . }}
 {{- end }}
 {{ range .services.user }}
-sudo systemctl --user enable {{ . }}
+systemctl --user enable {{ . }}
 {{- end }}
 
