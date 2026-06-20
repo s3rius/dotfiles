@@ -1,0 +1,31 @@
+#!/bin/bash
+
+{{ with .packages.repo -}}
+sudo pacman -Syu --needed --noconfirm {{ range . -}} {{ . | quote }} {{ end -}}
+{{- end }}
+
+{{ with .packages.aur -}}
+paru -Syu --needed --noconfirm {{ range . -}} {{ . | quote }} {{ end -}}
+{{- end }}
+
+{{- with .packages.custom }}
+
+{{- range . }}
+
+if [ ! -e "{{ .skip_if_exists }}" ]; then
+    tmp_dir="$(mktemp -d)"
+    {{- if (eq .type "git") }}
+    git clone {{ .repo }} "$tmp_dir"
+    pushd "$tmp_dir"
+    {{ .install_command }}
+    popd
+    {{- else if (eq .type "http") }}
+    pushd "$tmp_dir"
+    wget {{ .url }}
+    {{ .install_command }}
+    popd
+    {{- end }}
+fi
+{{- end }}
+
+{{- end }}
