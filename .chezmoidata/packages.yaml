@@ -90,6 +90,7 @@ packages:
     - hyprlock
     - udiskie
     - uwsm
+    - gammastep
   aur:
     - autojump-rs
     - gruvbox-gtk-theme-git
