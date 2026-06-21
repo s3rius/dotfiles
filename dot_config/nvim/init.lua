@@ -35,7 +35,6 @@ end
 vim.api.nvim_create_autocmd('PackChanged', { callback = hooks })
 
 vim.pack.add({
-	{ src = "https://github.com/eddyekofo94/gruvbox-flat.nvim" },    -- Gruvbox theme
 	{ src = "https://github.com/jacobdot/nvim-web-devicons.nvim" },  -- Icons
 	{ src = "https://github.com/neovim/nvim-lspconfig" },            -- LSP support
 	{ src = "https://github.com/smoka7/hop.nvim" },                  -- EasyMotion
@@ -56,8 +55,8 @@ vim.pack.add({
 	{ src = "https://github.com/Dynge/gitmoji.nvim" },    -- Gitmoji
 	{ src = "https://github.com/stevearc/oil.nvim" },     -- OIL file picker
 	{ src = "https://github.com/kkoomen/vim-doge" },      -- Doge for docstring generation
+	{ src = "https://github.com/RRethy/base16-nvim" },    -- Base16 for colorscheme generation.
 })
-vim.cmd("colorscheme gruvbox-flat")
 vim.cmd("highlight Normal guibg=NONE")
 vim.diagnostic.enable()
 vim.diagnostic.config({
@@ -154,6 +153,7 @@ require("venv-selector").setup({})
 vim.keymap.set("n", "<leader>vs", ":VenvSelect<CR>", { desc = "Select Python virtualenv" })
 
 pcall(require, "config.intree")
+pcall(require, "config.colors")
 require("nvim-web-devicons").setup({})
 require("which-key").setup({})
 require("nvim-autopairs").setup({})

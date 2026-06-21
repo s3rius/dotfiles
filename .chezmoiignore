@@ -1,1 +1,7 @@
-README.md # It's a readme.
+# Readme.
+README.md
+# Matugen generated data. Should be generated.
+.config/hypr/hyprland/colors.lua
+.config/hypr/colors.css
+.config/nvim/lua/config/colors.lua
+.zfunc/_*

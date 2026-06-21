@@ -2,6 +2,7 @@ packages:
   repo:
     - acpi
     - zsh-completions
+    - adw-gtk-theme
     - helm
     - base-devel
     - bat
@@ -91,9 +92,9 @@ packages:
     - udiskie
     - uwsm
     - gammastep
+    - matugen
   aur:
     - autojump-rs
-    - gruvbox-gtk-theme-git
     - gruvbox-plus-icon-theme-git
     - helm-ls-bin
     - nerd-fonts

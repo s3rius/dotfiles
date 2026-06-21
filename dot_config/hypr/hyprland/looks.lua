@@ -1,11 +1,14 @@
+local colors = require("hyprland.colors")
+
+
 hl.config({
     general = {
         gaps_in = 5,
         gaps_out = 20,
         border_size = 2,
         col = {
-            active_border = { colors = { "rgba(D65D0EEE)", "rgba(458588EE)" }, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+            active_border = { colors = { colors.primary, colors.secondary }, angle = 45 },
+            inactive_border = colors.inverse_primary,
         },
         layout = "dwindle",
         allow_tearing = false,

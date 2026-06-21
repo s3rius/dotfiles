@@ -14,3 +14,5 @@ require("hyprland.keybinds")
 require("hyprland.inputs")
 -- Fine-grained window configuration.
 require("hyprland.windows")
+-- Environment variables
+require("hyprland.env")
