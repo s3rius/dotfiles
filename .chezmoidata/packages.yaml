@@ -1,15 +1,25 @@
 packages:
   repo:
     - acpi
-    - zsh-completions
-    - adw-gtk-theme
     - helm
     - base-devel
     - bat
+    # Bluetooth
     - blueman
     - bluez
     - bluez-libs
     - bluez-utils
+    - libldac
+    # Fonts
+    - ttf-font-awesome
+    - ttf-iosevka-nerd
+    - ttf-ubuntu-font-family
+    - ttf-fira-code
+    - otf-font-awesome
+    - noto-fonts-emoji
+    - opendesktop-fonts
+    # Development
+    - neovim
     - curl
     - git
     - jujutsu
@@ -19,41 +29,27 @@ packages:
     - docker-buildx
     - fd
     - feh
-    - gnome-keyring
-    - gopls
+    - zsh-completions
     - imagemagick
     - kitty
     - kubectl
-    - libldac
     - linux-headers
     - eza
     - lua51
     - luarocks
-    - lua-language-server
     - man-db
     - marksman
     - mpv
-    - neovim
-    - noto-fonts-emoji
-    - opendesktop-fonts
-    - otf-font-awesome
     - playerctl
-    - pyright
     - ripgrep
-    - rust-analyzer
     - sd
     - starship
     - tinymist
     - tk
-    - ttf-fira-code
-    - ttf-font-awesome
-    - ttf-iosevka-nerd
-    - ttf-ubuntu-font-family
     - typescript-language-server
     - unzip
     - wget
     - xournalpp
-    - yaml-language-server
     - zathura
     - zathura-cb
     - zathura-djvu
@@ -71,7 +67,6 @@ packages:
     - swaync
     - wofi
     - sddm
-    - otf-font-awesome
     - qt6
     - qt6ct
     - xdg-desktop-portal-hyprland
@@ -92,11 +87,18 @@ packages:
     - udiskie
     - uwsm
     - gammastep
-    - matugen
     - papirus-icon-theme
+    - gnome-keyring
+    # LSPs
+    - gopls
+    - yaml-language-server
+    - rust-analyzer
+    - pyright
+    - lua-language-server
+    - vtsls
+    - vue-language-server
   aur:
     - autojump-rs
-    - gruvbox-plus-icon-theme-git
     - helm-ls-bin
     - nerd-fonts
     - terraform-ls-bin
@@ -104,6 +106,7 @@ packages:
     - ttf-ubraille
     - zen-browser-bin
     - bibata-cursor-theme-bin
+    - catppuccin-gtk-theme-mocha
   custom:
     - type: "git"
       repo: "https://github.com/robbyrussell/oh-my-zsh.git"

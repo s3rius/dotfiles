@@ -1,5 +1,15 @@
-local colors = require("hyprland.colors")
+local function set_cursor(name, size)
+    hl.exec_cmd("hyprctl setcursor '" .. name .. "' " .. tostring(size))
+    hl.env("XCURSOR_THEME", name)
+    hl.env("XCURSOR_SIZE", tostring(size))
+end
 
+hl.on("hyprland.start", function()
+    hl.exec_cmd('gsettings set org.gnome.desktop.interface gtk-theme "catppuccin-mocha-blue-standard+default"')
+    hl.exec_cmd('gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"')
+    hl.exec_cmd('gsettings set org.gnome.desktop.interface icon-theme "Papirus"')
+    set_cursor("Bibata-Modern-Ice", 24)
+end)
 
 hl.config({
     general = {
@@ -7,8 +17,8 @@ hl.config({
         gaps_out = 20,
         border_size = 2,
         col = {
-            active_border = { colors = { colors.primary, colors.secondary }, angle = 45 },
-            inactive_border = colors.inverse_primary,
+            active_border = { colors = { "#89b4fa", "#b4befe" }, angle = 45 },
+            inactive_border = "#313244",
         },
         layout = "dwindle",
         allow_tearing = false,

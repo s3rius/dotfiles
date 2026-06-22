@@ -32,6 +32,7 @@ require('blink.cmp').setup({
 	},
 })
 
+
 --------------------
 -- Servers config --
 --------------------
@@ -56,23 +57,6 @@ vim.lsp.config("rust_analyzer", {
 				allFeatures = true,
 			},
 		},
-	},
-})
-vim.lsp.config("ts_ls", {
-	capabilities = capabilities,
-	init_options = {
-		plugins = {
-			{
-				name = "@vue/typescript-plugin",
-				location = "/usr/lib/node_modules/@vue/typescript-plugin/",
-				languages = { "javascript", "typescript", "vue" },
-			},
-		},
-	},
-	filetypes = {
-		"javascript",
-		"typescript",
-		"vue",
 	},
 })
 vim.lsp.config("jsonls", {
@@ -115,16 +99,30 @@ vim.lsp.config("tinymist", {
 	}
 })
 
--- vim.lsp.config("yamlls", {
--- 	capabilities = capabilities,
--- 	settings = {
--- 		yaml = {
--- 			schemas = {
--- 				[require('kubernetes').yamlls_schema()] = "*.yaml",
--- 			},
--- 		}
--- 	}
--- })
+vim.lsp.config('vtsls', {
+	capabilities = capabilities,
+	settings = {
+		typescript = {
+			tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
+		},
+		vtsls = {
+			tsserver = {
+				globalPlugins = {
+					{
+						name = '@vue/typescript-plugin',
+						location = "/usr/lib/node_modules/@vue/language-server",
+						languages = { 'vue' },
+						configNamespace = 'typescript',
+					},
+				},
+			},
+			vue = {
+				enabled = true,
+			},
+		},
+	},
+	filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+})
 
 local function enable_with_capsabilities(servers, capabilities)
 	for _, server in ipairs(servers) do
@@ -141,7 +139,6 @@ enable_with_capsabilities(
 		"clangd",
 		"pyright",
 		"ruff",
-		"vue_ls",
 		"kotlin_language_server",
 		"texlab",
 		"marksman",
@@ -149,7 +146,6 @@ enable_with_capsabilities(
 		"gopls",
 		"lexical",
 		"tombi",
-		"ts_ls",
 		"jsonls",
 		"helm_ls",
 		"yamlls",
@@ -160,6 +156,8 @@ enable_with_capsabilities(
 		"dartls",
 		"tinymist",
 		"gdscript",
+		"svelte",
+		"vtsls",
 		-- "elixirls",
 	},
 	capabilities

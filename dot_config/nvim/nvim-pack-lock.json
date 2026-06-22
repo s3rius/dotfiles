@@ -21,6 +21,10 @@
       "rev": "bf67998a314236cfba50fe311d60ef03d15d9426",
       "src": "https://github.com/saghen/blink.lib"
     },
+    "catppuccin": {
+      "rev": "e068ab5f8261f23f6f71ffd8791ae40315b77b9c",
+      "src": "https://github.com/catppuccin/nvim"
+    },
     "cmp-cmdline": {
       "rev": "d126061",
       "src": "https://github.com/hrsh7th/cmp-cmdline"
@@ -96,6 +100,10 @@
     "token": {
       "rev": "0dc6af2668e9c9f8ccde056da4ec18ff05f36cde",
       "src": "https://github.com/ThorstenRhau/token"
+    },
+    "trouble.nvim": {
+      "rev": "bd67efe408d4816e25e8491cc5ad4088e708a69a",
+      "src": "https://github.com/folke/trouble.nvim"
     },
     "venv-selector.nvim": {
       "rev": "cc4bb3975de8835291f9bb45889e96c6b2795fc4",

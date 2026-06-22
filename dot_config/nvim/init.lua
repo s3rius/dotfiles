@@ -55,8 +55,28 @@ vim.pack.add({
 	{ src = "https://github.com/Dynge/gitmoji.nvim" },    -- Gitmoji
 	{ src = "https://github.com/stevearc/oil.nvim" },     -- OIL file picker
 	{ src = "https://github.com/kkoomen/vim-doge" },      -- Doge for docstring generation
-	{ src = "https://github.com/RRethy/base16-nvim" },    -- Base16 for colorscheme generation.
+	{ src = "https://github.com/catppuccin/nvim",       name = "catppuccin" },
 })
+require("catppuccin").setup({
+	flavour = "mocha",
+	transparent_background = true,
+	float = {
+		transparent = true,
+	},
+	term_colors = true,
+	dim_inactive = {
+		enabled = true,
+		shade = "dark",
+		percentage = 0.2
+	},
+	integrations = {
+		snacks = {
+			enabled = true,
+			indent_scope_color = "", -- catppuccin color (eg. `lavender`) Default: overlay2
+		}
+	}
+})
+vim.cmd.colorscheme("catppuccin-nvim")
 vim.cmd("highlight Normal guibg=NONE")
 vim.diagnostic.enable()
 vim.diagnostic.config({
@@ -110,7 +130,14 @@ if Snacks == nil then
 end
 vim.keymap.set("n", "<C-`>", function() Snacks.terminal() end, { desc = "FileTree toggle" })
 -- Buffers and files
-vim.keymap.set("n", "<leader>bl", function() Snacks.picker.buffers({ current = false, sort_lastused = true }) end,
+vim.keymap.set("n", "<leader>bl",
+	function()
+		Snacks.picker.buffers({
+			current = false,
+			sort_lastused = true,
+			layout = { preview = false, preset = 'select' },
+		})
+	end,
 	{ desc = "Buffers list" })
 vim.keymap.set("n", "<leader>bc", function() Snacks.bufdelete() end, { desc = "Buffer close" })
 -- Picking
@@ -152,8 +179,8 @@ vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "Rename symbol" })
 require("venv-selector").setup({})
 vim.keymap.set("n", "<leader>vs", ":VenvSelect<CR>", { desc = "Select Python virtualenv" })
 
+
 pcall(require, "config.intree")
-pcall(require, "config.colors")
 require("nvim-web-devicons").setup({})
 require("which-key").setup({})
 require("nvim-autopairs").setup({})

@@ -1,3 +1,0 @@
-@define-color --color-bg {{colors.primary.default.hex}};
-@define-color --color-fg {{colors.on_primary.default.hex}};
-@define-color --color-accent {{colors.primary_container.default.hex}};
