@@ -54,9 +54,6 @@ box .modules-right {
 #tray menu {
 	background: @--color-bg;
 	color: @--color-fg;
-	/* margin: 0; */
-	/* padding-left: 0; */
-	/* padding-right: 0; */
 }
 
 #workspaces button {

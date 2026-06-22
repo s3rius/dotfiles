@@ -93,6 +93,7 @@ packages:
     - uwsm
     - gammastep
     - matugen
+    - papirus-icon-theme
   aur:
     - autojump-rs
     - gruvbox-plus-icon-theme-git
@@ -118,3 +119,4 @@ services:
     - docker.service
   user:
     - hyprpolkitagent.service
+    - hyprpaper.service

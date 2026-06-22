@@ -13,8 +13,8 @@ require('base16-colorscheme').setup({
   base06 = '{{colors.outline_variant.default.hex}}',
   base07 = '{{colors.on_surface.default.hex}}',
 
-  base08 = '{{colors.error_container.default.hex}}',
-  base09 = '{{colors.error_container.default.hex}}',
+  base08 = '{{colors.primary_container.default.hex}}',
+  base09 = '{{colors.primary_container.default.hex}}',
   base0A = '{{colors.primary_container.default.hex}}',
   base0B = '{{colors.primary_container.default.hex}}',
   base0C = '{{colors.secondary_container.default.hex}}',
@@ -300,6 +300,11 @@ set({ 'DiagnosticInfo' }, {
 set({ 'DiagnosticHint' }, {
   fg = '{{colors.secondary_container.default.hex}}',
   underline = true,
+})
+
+set({ 'LspSignatureActiveParameter' }, {
+  fg = '{{colors.primary_container.default.hex}}',
+  bold = true,
 })
 
 set({ 'DiagnosticUnderlineError' }, {

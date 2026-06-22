@@ -1,7 +1,7 @@
 -- Generated using MUTAGEN
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("matugen image {{image}} --contrast 0.5 --prefer darkness --show-colors ")
+    hl.exec_cmd("matugen image {{image}} --contrast 0.5 --prefer darkness")
 end)
 
 

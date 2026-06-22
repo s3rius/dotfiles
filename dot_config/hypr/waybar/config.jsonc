@@ -19,8 +19,8 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
-   	  "hyprland/submap",
-      "tray"
+    	  "hyprland/submap",
+       "tray"
     ],
     "pulseaudio": {
         "format": "{icon}   {volume}%",

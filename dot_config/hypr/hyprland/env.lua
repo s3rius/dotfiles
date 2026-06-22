@@ -1,5 +1,7 @@
 local envs = {
-    XDG_CURRENT_DESKTOP = "HyprLand",
+    XDG_CURRENT_DESKTOP = "Hyprland",
+    XDG_SESSION_DESKTOP = "Hyprland",
+    XDG_SESSION_TYPE = "wayland",
     MOZ_ENABLE_WAYLAND = "1",
     QT_QPA_PLATFORM = "xcb",
     QT_QPA_PLATFORMTHEME = "qt5ct",

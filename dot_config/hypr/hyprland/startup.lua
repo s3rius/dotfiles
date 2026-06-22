@@ -1,5 +1,5 @@
 hl.on("hyprland.start", function()
-    hl.exec_cmd("nm-applet")
+    hl.exec_cmd("nm-applet &")
     hl.exec_cmd("udiskie &")
     hl.exec_cmd("gammastep &")
     hl.exec_cmd("waybar -c ~/.config/hypr/waybar/config.jsonc -s ~/.config/hypr/waybar/style.css &")

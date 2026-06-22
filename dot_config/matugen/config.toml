@@ -1,12 +1,4 @@
 [config]
-[config.wallpaper]
-# Whether to set the wallpaper or not
-set = true
-
-# The base command to run for applying the wallpaper.
-# Keywords like {{ image }} or anything that works inside of hooks works here.
-# You could also set a static color if you use the color keywords and the wallpaper setter supports it.
-command = 'hyprctl hyprpaper wallpaper ",{{image}},cover"'
 
 [templates.de]
 input_path = "./templates/de.css"
