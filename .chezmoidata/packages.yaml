@@ -95,8 +95,6 @@ packages:
     - rust-analyzer
     - pyright
     - lua-language-server
-    - vtsls
-    - vue-language-server
   aur:
     - autojump-rs
     - helm-ls-bin

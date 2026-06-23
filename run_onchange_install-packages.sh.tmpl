@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 {{ with .packages.repo -}}
 sudo pacman -Syu --needed --noconfirm {{ range . -}} {{ . | quote }} {{ end -}}
 {{- end }}
