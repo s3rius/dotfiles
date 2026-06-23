@@ -2,6 +2,10 @@ function HDMI_STATE(enabled)
     if enabled then
         hl.monitor({
             output = "desc:Samsung Electric Company SAMSUNG 0x01000E00",
+            mode = "3840x2160@60",
+            position = "-3840x0",
+            scale = 1,
+            cm = "auto",
             disabled = false
         })
     else
@@ -42,6 +46,3 @@ hl.monitor({
     scale = 1,
     cm = "auto",
 })
-
-
-
