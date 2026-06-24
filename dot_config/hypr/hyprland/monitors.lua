@@ -1,4 +1,4 @@
-function HDMI_STATE(enabled)
+function hdmi(enabled)
     if enabled then
         hl.monitor({
             output = "desc:Samsung Electric Company SAMSUNG 0x01000E00",
@@ -6,7 +6,7 @@ function HDMI_STATE(enabled)
             position = "-3840x0",
             scale = 1,
             cm = "auto",
-            disabled = false
+            -- mirror = "desc:ASUSTek COMPUTER INC VG279Q5R TALMDW005891"
         })
     else
         hl.monitor({

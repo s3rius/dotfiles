@@ -20,7 +20,7 @@ hl.config({
             active_border = { colors = { "#89b4fa", "#b4befe" }, angle = 45 },
             inactive_border = "#313244",
         },
-        layout = "dwindle",
+        layout = "scrolling",
         allow_tearing = false,
     },
 
@@ -43,6 +43,10 @@ hl.config({
 
     dwindle = {
         preserve_split = true,
+    },
+
+    scrolling = {
+        direction = "right"
     },
 
     master = {
