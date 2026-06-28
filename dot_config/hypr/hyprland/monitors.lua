@@ -6,6 +6,7 @@ function hdmi(enabled)
             position = "-3840x0",
             scale = 1,
             cm = "auto",
+            disabled = false
             -- mirror = "desc:ASUSTek COMPUTER INC VG279Q5R TALMDW005891"
         })
     else

@@ -12,7 +12,12 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + M", hl.dsp.layout("togglesplit"))
+
+if hl.get_config("general.layout") == "scrolling" then
+    hl.bind(mainMod .. " + M", hl.dsp.layout("promote"))
+else
+    hl.bind(mainMod .. " + M", hl.dsp.layout("togglesplit"))
+end
 
 -- Move focus
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
