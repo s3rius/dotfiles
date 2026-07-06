@@ -153,8 +153,34 @@ vim.keymap.set({ "n", "o", "v" }, "<leader><leader>w", "<cmd>HopWordAC<CR>",
 vim.keymap.set({ "n", "o", "v" }, "<leader><leader>b", "<cmd>HopWordBC<CR>",
 	{ noremap = true, desc = "Easy motion backward" })
 
+local git_utils = require("utils.git")
+git_utils.setup()
 require("oil").setup({
 	default_file_explorer = true,
+	view_options = {
+		-- Function to filter out hidden files.
+		is_hidden_file = function(name, bufnr)
+			-- Always show ".."
+			if name == ".." then
+				return false
+			end
+			local dir = require("oil").get_current_dir(bufnr)
+			local is_dot = vim.startswith(name, ".")
+			-- If it's a remote dir (like over ssh).
+			if not dir then
+				return is_dot
+			end
+			-- If it's a local directory, let's take a look at jj tracked files.
+			local ignored_files = git_utils.ignored_files[dir]
+			-- If it's a jj repo, then we
+			-- only show tracked files.
+			if vim.tbl_count(ignored_files) > 0 then
+				return ignored_files[name] == true
+			end
+			-- Otherwise we just ignore dotfiles.
+			return is_dot
+		end
+	}
 
 })
 vim.keymap.set("n", "<leader>ft", "<CMD>Oil --float<CR>", { desc = "File Tree" })
