@@ -158,6 +158,7 @@ enable_with_capsabilities(
 		"gdscript",
 		"svelte",
 		"vtsls",
+		"glsl_analyzer",
 		-- "elixirls",
 	},
 	capabilities

@@ -29,6 +29,7 @@ behavior = "own"
 default-command = "log"
 conflict-marker-style = "git"
 diff-editor = ":builtin"
+diff-formatter = "difft"
 
 [ui.graph]
 style = "curved"
