@@ -97,7 +97,7 @@ packages:
     - pyright
     - lua-language-server
   aur:
-    - autojump-rs
+    - autojump-rs-bin
     - helm-ls-bin
     - nerd-fonts
     - terraform-ls-bin
