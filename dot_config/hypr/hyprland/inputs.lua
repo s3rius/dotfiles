@@ -24,7 +24,7 @@ hl.config({
     },
 
     cursor = {
-        inactive_timeout = 2,
+        -- inactive_timeout = 2,
     },
 
     gestures = {

@@ -11,6 +11,7 @@ hl.on("hyprland.start", function()
     set_cursor("Bibata-Modern-Ice", 24)
 end)
 
+
 hl.config({
     general = {
         gaps_in = 5,

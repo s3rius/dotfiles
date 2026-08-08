@@ -197,6 +197,7 @@ require("copilot").setup({
 require("config.lsp")
 vim.keymap.set("n", "<C-S-i>", vim.lsp.buf.format, { desc = "Format code" })
 vim.keymap.set("n", "<C-Space>", vim.lsp.buf.code_action, { desc = "Code actions" })
+vim.keymap.set("n", "<leader>ld", function() Snacks.picker.diagnostics() end, { desc = "LSP diagnostics" })
 vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, { desc = "Go to definition" })
 vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end, { desc = "Go to references" })
 vim.keymap.set("i", "<C-space>", vim.lsp.completion.get, { desc = "trigger autocompletion" })
