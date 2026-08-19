@@ -30,6 +30,7 @@ hl.monitor({
     position = "-3840x0",
     scale = 1,
     cm = "auto",
+    mirror = ""
 })
 
 hl.monitor({
@@ -46,4 +47,5 @@ hl.monitor({
     position = "1920x0",
     scale = 1,
     cm = "auto",
+    mirror = ""
 })

@@ -5,7 +5,7 @@
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
     "base16-nvim": {
-      "rev": "cf82c4be16334c7cdf9883296eacfba50ff93b26",
+      "rev": "09944b3120451d2881dc8cfb13c85c11949f477d",
       "src": "https://github.com/RRethy/base16-nvim"
     },
     "blink-copilot": {
@@ -18,11 +18,11 @@
       "version": "1.0.0 - 2.0.0"
     },
     "blink.lib": {
-      "rev": "8b04d0e0acc8565cfa4dd291a89a9212b7262633",
+      "rev": "c8fdc12c8a2fab6cf786dd7141a283f8079f902b",
       "src": "https://github.com/saghen/blink.lib"
     },
     "catppuccin": {
-      "rev": "79e2049a0fdf7ec840f8463fe1d962c94493196b",
+      "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
       "src": "https://github.com/catppuccin/nvim"
     },
     "cmp-cmdline": {
@@ -46,7 +46,7 @@
       "src": "https://github.com/zbirenbaum/copilot-cmp"
     },
     "copilot.lua": {
-      "rev": "261e70f26e6c02562495f900399234c4e26daa2f",
+      "rev": "7e6723aabea044519462958ffcea68d7985c5ed0",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "gitmoji.nvim": {
@@ -78,11 +78,11 @@
       "src": "https://github.com/hrsh7th/nvim-cmp"
     },
     "nvim-lspconfig": {
-      "rev": "43ed3797b266e1ee8d222e491379ad471c9d3146",
+      "rev": "4267d26e60323a45e18f8e7a63a964cc8f53ca4e",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "7b6cc8949f9999c5ed91436cbe24aa5f99c42025",
+      "rev": "c9f9ed6c1892f629ea399f4ee7905f2686fa13f2",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-web-devicons.nvim": {
@@ -98,7 +98,7 @@
       "src": "https://github.com/folke/snacks.nvim"
     },
     "token": {
-      "rev": "7284e7658223c8626487cd85153e8507f3dadd5e",
+      "rev": "6fb815601095e2673d7d62d2a816255bf7c680c0",
       "src": "https://github.com/ThorstenRhau/token"
     },
     "trouble.nvim": {
